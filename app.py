@@ -4,4 +4,4 @@ from sklearn.ensemble import RandomForestClassifier
 st.title("TITLE")
 st.write("ok")
 
-st.write(f"{1+2+3+4+5}")
+st.write(1+1+1+2)
