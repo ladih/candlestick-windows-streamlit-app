@@ -3,7 +3,7 @@ import numpy as np
 import joblib
 from sklearn.ensemble import RandomForestClassifier
 
-st.title("Candlestick Return Predictor Demo")
+st.title("Return Prediction Demo")
 
 # Load model
 rf_model = joblib.load("models/rf.pkl")
