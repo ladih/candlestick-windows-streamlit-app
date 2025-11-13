@@ -33,4 +33,4 @@ st.write("True label:", true_label)
 
 # Make prediction
 prediction = rf_model.predict_proba(sample_input)
-st.write("Prediction:", prediction[1])
+st.write("Prediction:", prediction[0, 1])
