@@ -44,7 +44,7 @@ if isinstance(selected_option, int):
     - **Ticker:** {ticker}
     - **Date:** {date}
     - **Time of signal candle:** {signal_time_str}
-    - **Signal candle percentage:** {perc * 100:.2f} %
+    - **Signal candle percentage:** {perc * 100:.1f} %
     """)
 
     fig = go.Figure(data=[
