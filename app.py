@@ -57,7 +57,8 @@ if isinstance(selected_option, int):
     fig.update_layout(
         title={
             "text": f"Window Chart",
-            "font": {"size": 20}
+            "font": {"size": 20},
+            "x": 0.5
         },
         xaxis_title="Time",
         yaxis_title="Price",
