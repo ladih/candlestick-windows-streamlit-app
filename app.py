@@ -37,12 +37,14 @@ if isinstance(selected_option, int):
     date = df['t'].iloc[0].date()
     signal_time = df['t'].iloc[I_SIGNAL_CANDLE].time()
     signal_time_str = signal_time.strftime("%H:%M")
+    perc = (w['c'].iloc[I_SIGNAL_CANDLE] - w['o'].iloc[I_SIGNAL_CANDLE]) / w['o'].iloc[I_SIGNAL_CANDLE]
 
     st.markdown(f"""
     **Sample Window Info**
     - **Ticker:** {ticker}
     - **Date:** {date}
     - **Time of signal candle:** {signal_time_str}
+    - **Signal candle percentage:** {perc * 100:.2f} %
     """)
 
     fig = go.Figure(data=[
