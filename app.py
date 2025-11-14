@@ -14,7 +14,7 @@ X_samples = np.load("sample_data/X_flat_test.npy")
 y_samples = np.load("sample_data/y_binary_test.npy")
 
 # Let user pick a sample
-selected_idx = st.selectbox("Pick a sample window", list(range(len(X_samples))))
+selected_idx = 1 - st.selectbox("Pick a sample window", list(1, range(len(X_samples) + 1)))
 sample_input = X_samples[selected_idx]
 true_label = y_samples[selected_idx]
 
@@ -25,8 +25,8 @@ for i in range(5):
     sample_windows.append(df)
 
 
-st.write("Ticker of chosen window:", sample_windows[selected_idx]['ticker'].iloc[0])
-st.write("Date of chosen window:", sample_windows[selected_idx]['t'].iloc[0].date())
+st.write("Ticker:", sample_windows[selected_idx]['ticker'].iloc[0])
+st.write("Date:", sample_windows[selected_idx]['t'].iloc[0].date())
 st.write("Time of first candle:", sample_windows[selected_idx]['t'].iloc[0])
 st.write("Time of signal candle:", sample_windows[selected_idx]['t'].iloc[21])
 
