@@ -9,6 +9,8 @@ from sklearn.ensemble import RandomForestClassifier
 st.title("Return Prediction Demo")
 
 I_SIGNAL_CANDLE = 20
+I_BUY_CANDLE = 21
+I_SELL_CANDLE = 26
 
 # Load sample windows
 sample_windows = []
@@ -38,6 +40,11 @@ if isinstance(selected_option, int):
     signal_time = df['t'].iloc[I_SIGNAL_CANDLE].time()
     signal_time_str = signal_time.strftime("%H:%M")
     perc = (w['c'].iloc[I_SIGNAL_CANDLE] - w['o'].iloc[I_SIGNAL_CANDLE]) / w['o'].iloc[I_SIGNAL_CANDLE]
+    rtn = (w['c'].iloc[I_SELL_CANDLE] - w['o'].iloc[I_BUY_CANDLE]) / w['o'].iloc[I_BUY_CANDLE]
+    if rtn > 0:
+        rtn_direction = 'positive'
+    else:
+        rtn_direction = 'negative'
 
     st.markdown(f"""
     **Sample Window Info**
@@ -90,6 +97,7 @@ if isinstance(selected_option, int):
         prediction = selected_model.predict_proba(sample_input)
 
         if model_type == 'regression':
-            st.write("notyet")
+            st.write(f"{selected_model_name} predicts that the return is: {prediction[0, 1]:.2f}")
         else:
             st.write(f"{selected_model_name} predicts that the probability of positive return is: {prediction[0, 1]:.2f}")
+            st.write(f"The actual return is: {rtn_direction}")
