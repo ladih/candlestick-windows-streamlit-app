@@ -32,7 +32,7 @@ date = df['t'].iloc[0].date()
 
 st.write("Chosen ticker:", ticker)
 st.write("Date:", date)
-st.write("Time of signal candle:", w['t'].iloc[21])
+st.write("Time of signal candle:", w['t'].iloc[21].dt.time)
 
 # Plotly candlestick figure
 fig = go.Figure(data=[
@@ -48,7 +48,7 @@ fig = go.Figure(data=[
 
 fig.update_layout(
     title={
-        "text": f"{ticker}, {date}",
+        "text": f"",
         "font": {"size": 20}   # adjust title size here
     },
     xaxis_title="Time",
