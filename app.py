@@ -37,9 +37,11 @@ if isinstance(selected_option, int):
     signal_time = w['t'].iloc[I_SIGNAL_CANDLE]
 
     st.write("**Sample Info**")
-    st.write("**Ticker**:", ticker)
-    st.write("**Date**:", date)
-    st.write("**Time of signal candle**:", signal_time.time().replace(second=0, microsecond=0))  # HH:MM, green
+    st.write(f"**Ticker:** {ticker}")
+    st.write(f"**Date:** {date}")
+    st.write(f"**Time of signal candle:** {signal_time.time().replace(second=0, microsecond=0)}")  # HH:MM
+    st.write(f"**Sample Info:** Ticker={ticker} | Date={date} | Signal Time={signal_time.time().replace(second=0, microsecond=0)}")
+
 
     fig = go.Figure(data=[
         go.Candlestick(
