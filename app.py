@@ -98,6 +98,13 @@ if isinstance(selected_option, int):
 
         if model_type == 'regression':
             st.write(f"{selected_model_name} predicts that the return is: {prediction[0, 1]:.2f}")
+            # Determine color based on rtn_direction
+            color = "#2ecc71" if rtn_direction.lower() == "positive" else "#e74c3c"
+
+            # Display the text with colored rtn_direction
+            st.markdown(
+                f'The actual return is: <span style="color:{color}; font-weight:bold;">({100 * rtn:.2f} %</span>)',
+                unsafe_allow_html=True)
         else:
             st.write(f"{selected_model_name} predicts that the probability of positive return is: {prediction[0, 1]:.2f}")
             # Determine color based on rtn_direction
