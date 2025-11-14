@@ -28,8 +28,7 @@ selected_option = st.selectbox("", options)
 
 # Only run if a real sample is selected
 if isinstance(selected_option, int):
-    selected_idx = selected_option - 1  # now 0-based index
-
+    selected_idx = selected_option - 1  # 0-based index
 
     w = sample_windows[selected_idx]
     df = w[:21]
@@ -57,7 +56,7 @@ if isinstance(selected_option, int):
 
     fig.update_layout(
         title={
-            "text": f"",
+            "text": f"Window Chart",
             "font": {"size": 20}
         },
         xaxis_title="Time",
