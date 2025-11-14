@@ -31,6 +31,7 @@ w = sample_windows[selected_idx]
 df = w[:21]
 ticker = df['ticker'].iloc[0]
 date = df['t'].iloc[0].date()
+signal_time = w['t'].iloc[I_SIGNAL_CANDLE]
 
 st.write("Chosen ticker:", ticker)
 st.write("Date:", date)
