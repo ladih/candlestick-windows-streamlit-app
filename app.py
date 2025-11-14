@@ -5,9 +5,15 @@ import joblib
 import plotly.graph_objects as go
 from sklearn.ensemble import RandomForestClassifier
 
+st.title("Return Prediction Demo")
+
 I_SIGNAL_CANDLE = 20
 
-st.title("Return Prediction Demo")
+# Load sample windows
+sample_windows = []
+for i in range(5):
+    df = pd.read_parquet(f"sample_data/w_{i}.parquet")
+    sample_windows.append(df)
 
 # Load model
 rf_model = joblib.load("models/rf.pkl")
@@ -24,11 +30,6 @@ selected_option = st.selectbox("", options)
 if type(selected_option) == int:
     selected_idx = selected_option - 1  # now 0-based index
 
-    # Load sample windows
-    sample_windows = []
-    for i in range(5):
-        df = pd.read_parquet(f"sample_data/w_{i}.parquet")
-        sample_windows.append(df)
 
     w = sample_windows[selected_idx]
     df = w[:21]
