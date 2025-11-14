@@ -62,12 +62,12 @@ if isinstance(selected_option, int):
         'x': 0.5,  # Centers the title
         'xanchor': 'center',
         'yanchor': 'top',
-        'font': {"size": 24}
+        'font': {"size": 20}
     },
     xaxis_title="Time",
     yaxis_title="Price",
-    xaxis_title_font={"size": 18},
-    yaxis_title_font={"size": 18},
+    xaxis_title_font={"size": 16},
+    yaxis_title_font={"size": 16},
     xaxis_rangeslider_visible=False
 )
     st.plotly_chart(fig, use_container_width=True)
