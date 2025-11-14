@@ -47,12 +47,12 @@ fig = go.Figure(data=[
 fig.update_layout(
     title={
         "text": f"{ticker}, {date}",
-        "font": {"size": 28}   # adjust title size here
+        "font": {"size": 20}   # adjust title size here
     },
     xaxis_title="Time",
     yaxis_title="Price",
-    xaxis_title_font={"size": 20},
-    yaxis_title_font={"size": 40},
+    xaxis_title_font={"size": 15},
+    yaxis_title_font={"size": 15},
     xaxis_rangeslider_visible=False
 )
 
