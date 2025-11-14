@@ -56,9 +56,7 @@ fig.update_layout(
     xaxis_rangeslider_visible=False
 )
 
-
-fig.update_xaxes(dtick="300000")   # 300,000 ms = 5 minutes
-
+fig.update_xaxes(tickmode="linear", dtick=5)
 # Show in Streamlit
 st.plotly_chart(fig, use_container_width=True)
 
