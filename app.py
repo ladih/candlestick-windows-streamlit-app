@@ -80,7 +80,7 @@ if isinstance(selected_option, int):
     if selected_model_name != "Select a model...":
         selected_model = models[selected_model_name]
         st.write(f"Selected model: {selected_model_name}")
-        if selected_model_name.split[-1] == 'regression':
+        if selected_model_name.split()[-1] == 'regression':
             model_type = 'regression'
         else:
             model_type = 'classification'
