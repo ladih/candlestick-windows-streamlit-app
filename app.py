@@ -24,6 +24,7 @@ selected_option = st.selectbox("", options)
 if selected_option != "Select a sample..." and type(selected_option) == int:
     selected_idx = selected_option - 1  # now 0-based index
 
+    st.write("type:", type(selected_option))
     sample_input = X_samples[selected_idx]
     true_label = y_samples[selected_idx]
 
@@ -39,7 +40,7 @@ if selected_option != "Select a sample..." and type(selected_option) == int:
     date = df['t'].iloc[0].date()
     signal_time = w['t'].iloc[I_SIGNAL_CANDLE]
 
-    st.write("Information of chosen window:")
+    st.write("Chosen window info:")
     st.write("Ticker:", ticker)
     st.write("Date:", date)
     st.write("Time of signal candle:", signal_time.time().replace(second=0, microsecond=0))  # HH:MM, green
