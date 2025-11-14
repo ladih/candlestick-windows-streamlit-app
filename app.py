@@ -39,9 +39,7 @@ if isinstance(selected_option, int):
     st.write("**Sample Info**")
     st.write(f"**Ticker:** {ticker}")
     st.write(f"**Date:** {date}")
-    st.write(f"**Time of signal candle:** {signal_time.time().replace(second=0, microsecond=0)}")  # HH:MM
-    st.write(f"**Sample Info:** Ticker={ticker} | Date={date} | Signal Time={signal_time.time().replace(second=0, microsecond=0)}")
-
+    st.write(f"**Time of signal candle:** {signal_time_str = signal_time.strftime("%H:%M"))  # HH:MM
 
     fig = go.Figure(data=[
         go.Candlestick(
