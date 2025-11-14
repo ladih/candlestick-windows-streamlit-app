@@ -17,6 +17,15 @@ selected_idx = st.selectbox("Pick a sample", list(range(len(X_samples))))
 sample_input = X_samples[selected_idx]
 true_label = y_samples[selected_idx]
 
+# Load sample windows
+sample_windows = []
+for i in range(5):
+    df = pd.read_parquet(f"sample_data/w_{i}.parquet")
+
+st.write("Ticker of chosen window:", sample_windows[selected_idx]['ticker'])
+st.write("Time of first candle:", sample_windows[selected_idx]['t'].iloc[0])
+st.write("Signal candle time:", sample_windows[selected_idx]['ticker'].iloc[21])
+
 
 st.write("Shape of X_samples:", X_samples.shape)
 st.write("Shape of y_samples:", y_samples.shape)
