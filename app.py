@@ -100,4 +100,4 @@ if isinstance(selected_option, int):
             st.write(f"{selected_model_name} predicts that the return is: {prediction[0, 1]:.2f}")
         else:
             st.write(f"{selected_model_name} predicts that the probability of positive return is: {prediction[0, 1]:.2f}")
-            st.write(f"The actual return is: {rtn_direction} ({rtn:.2f})")
+            st.write(f"The actual return is: {rtn_direction} ({100 * rtn:.2f} %)")
