@@ -56,9 +56,9 @@ if isinstance(selected_option, int):
         )
     ])
     fig.update_xaxes(tickmode="linear", dtick=2)
-fig.update_layout(
+    fig.update_layout(
     title={
-        'text': "My Candlestick Chart",
+        'text': "Chart up to signal candle",
         'x': 0.5,  # Centers the title
         'xanchor': 'center',
         'yanchor': 'top',
