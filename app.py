@@ -45,7 +45,8 @@ if isinstance(selected_option, int):
     - **Time of signal candle:** {signal_time_str}
     """)
 
-    fig = go.Figure(data=[
+fig = go.Figure(
+    data=[
         go.Candlestick(
             x=df['t'].dt.strftime('%H:%M'),
             open=df['o'],
@@ -54,16 +55,22 @@ if isinstance(selected_option, int):
             close=df['c'],
             name="Candles"
         )
-    ])
-    fig.update_xaxes(tickmode="linear", dtick=2)
-    fig.update_layout(
-        xaxis_title="Time",
-        yaxis_title="Price",
-        xaxis_title_font={"size": 18},
-        yaxis_title_font={"size": 18},
-        xaxis_rangeslider_visible=False
+    ],
+    layout=go.Layout(
+        title="Candlestick Chart Up to Signal Candle",
+        xaxis=dict(
+            title="Time",
+            tickmode="linear",
+            dtick=2,
+            rangeslider=dict(visible=False)
+        ),
+        yaxis=dict(
+            title="Price"
+        )
     )
-    st.plotly_chart(fig, use_container_width=True)
+)
+
+st.plotly_chart(fig, use_container_width=True)
 
     # Select model
     options_models = ["Select a model..."] + list(models.keys())
