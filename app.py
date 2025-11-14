@@ -39,7 +39,7 @@ st.write("Time of signal candle:", signal_time.time().replace(second=0, microsec
 
 fig = go.Figure(data=[
     go.Candlestick(
-        x=df['t'].dt.strftime('%H:%M')
+        x=df['t'].dt.strftime('%H:%M'),
         open=df['o'],
         high=df['h'],
         low=df['l'],
