@@ -91,4 +91,3 @@ if isinstance(selected_option, int):
     else:
         selected_model = None
         st.write("No model selected.")
-    st.write(f"You selected: **{selected_model_name}**")
