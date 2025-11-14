@@ -25,10 +25,39 @@ for i in range(5):
     sample_windows.append(df)
 
 w = sample_windows[selected_idx]
+df = w[:21]
+
+import plotly.graph_objects as go
+
+
+# Plotly candlestick figure
+fig = go.Figure(data=[
+    go.Candlestick(
+        x=df['t'],
+        open=df['o'],
+        high=df['h'],
+        low=df['l'],
+        close=df['c'],
+        name="Candles"
+    )
+])
+
+fig.update_layout(
+    title="Candlestick Chart",
+    xaxis_title="Time",
+    yaxis_title="Price",
+    xaxis_rangeslider_visible=False
+)
+
+# Show in Streamlit
+st.plotly_chart(fig, use_container_width=True)
+
 st.write("Ticker:", w['ticker'].iloc[0])
 st.write("Date:", w['t'].iloc[0].date())
 st.write("Time of first candle:", w['t'].iloc[0])
 st.write("Time of signal candle:", w['t'].iloc[21])
+
+
 
 sample_input = X_samples[selected_idx]
 sample_input = X_samples[selected_idx].reshape(1, -1) # shape (1, n_features) for tree models
