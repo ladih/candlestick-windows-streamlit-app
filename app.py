@@ -14,7 +14,7 @@ X_samples = np.load("sample_data/X_flat_test.npy")
 y_samples = np.load("sample_data/y_binary_test.npy")
 
 # Let user pick a sample
-selected_idx = 10 - st.selectbox("Pick a sample window", list(range(1, len(X_samples) + 1)))
+selected_idx = -5 + st.selectbox("Pick a sample window", list(range(1, len(X_samples) + 1)))
 sample_input = X_samples[selected_idx]
 true_label = y_samples[selected_idx]
 
