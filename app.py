@@ -56,14 +56,19 @@ if isinstance(selected_option, int):
             name="Candles"
         )
     ])
+
+    # Update axes and layout, including chart title
     fig.update_xaxes(tickmode="linear", dtick=2)
     fig.update_layout(
+        title="Candlestick Chart Up to Signal Candle",
         xaxis_title="Time",
         yaxis_title="Price",
         xaxis_title_font={"size": 18},
         yaxis_title_font={"size": 18},
         xaxis_rangeslider_visible=False
     )
+
+    # Render in Streamlit
     st.plotly_chart(fig, use_container_width=True)
 
     # Select model
