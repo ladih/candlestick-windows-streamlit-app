@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import joblib
 import plotly.graph_objects as go
+from load_models import models  # Import the dictionary from load_models.py
 from sklearn.ensemble import RandomForestClassifier
 
 st.title("Return Prediction Demo")
@@ -16,10 +17,7 @@ for i in range(5):
     sample_windows.append(df)
 
 # Load model
-models = {
-    "Random Forest": joblib.load("models/rf.pkl"),
-    "Extra Trees": joblib.load("models/ert.pkl")  # corrected, assuming ert.pkl exists
-}
+
 
 # Load sample data
 X_samples = np.load("sample_data/X_flat_test.npy")
@@ -66,10 +64,6 @@ if isinstance(selected_option, int):
         xaxis_rangeslider_visible=False
     )
     st.plotly_chart(fig, use_container_width=True)
-
-    st.write("Feature families with corresponding indices used for prediction:")
-
-    st.write("Total:")
 
     # Select model
     options_models = ["Select a model..."] + list(models.keys())
