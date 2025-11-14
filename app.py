@@ -47,7 +47,6 @@ if isinstance(selected_option, int):
 
     fig = go.Figure(data=[
         go.Candlestick(
-            title='Chart up to signal candle',
             x=df['t'].dt.strftime('%H:%M'),
             open=df['o'],
             high=df['h'],
@@ -56,19 +55,14 @@ if isinstance(selected_option, int):
             name="Candles"
         )
     ])
-
-    # Update axes and layout, including chart title
     fig.update_xaxes(tickmode="linear", dtick=2)
     fig.update_layout(
-        title="Candlestick Chart Up to Signal Candle",
         xaxis_title="Time",
         yaxis_title="Price",
         xaxis_title_font={"size": 18},
         yaxis_title_font={"size": 18},
         xaxis_rangeslider_visible=False
     )
-
-    # Render in Streamlit
     st.plotly_chart(fig, use_container_width=True)
 
     # Select model
