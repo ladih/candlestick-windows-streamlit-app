@@ -105,6 +105,5 @@ if isinstance(selected_option, int):
             # Display the text with colored rtn_direction
             st.markdown(
                 f'The actual return is: <span style="color:{color}; font-weight:bold;">{rtn_direction}</span> ({100 * rtn:.2f} %)',
-                unsafe_allow_html=True,
-                st.write(f"The actual return is: {rtn_direction} ({100 * rtn:.2f} %)")
+                unsafe_allow_html=True
                 )
