@@ -32,7 +32,7 @@ date = df['t'].iloc[0].date()
 
 st.write("Chosen ticker:", ticker)
 st.write("Date:", date)
-st.write("Time of signal candle:", w['t'].iloc[21].dt.time)
+st.write("Time of signal candle:", w['t'].dt.time.iloc[21])
 
 # Plotly candlestick figure
 fig = go.Figure(data=[
