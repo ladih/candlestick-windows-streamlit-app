@@ -39,7 +39,7 @@ if isinstance(selected_option, int):
     date = df['t'].iloc[0].date()
     signal_time = df['t'].iloc[I_SIGNAL_CANDLE].time()
     signal_time_str = signal_time.strftime("%H:%M")
-    perc = (w['c'].iloc[I_SIGNAL_CANDLE] - w['o'].iloc[I_SIGNAL_CANDLE]) / w['o'].iloc[I_SIGNAL_CANDLE]
+    signal_candle_perc = (w['c'].iloc[I_SIGNAL_CANDLE] - w['o'].iloc[I_SIGNAL_CANDLE]) / w['o'].iloc[I_SIGNAL_CANDLE]
     rtn = (w['c'].iloc[I_SELL_CANDLE] - w['o'].iloc[I_BUY_CANDLE]) / w['o'].iloc[I_BUY_CANDLE]
     if rtn > 0:
         rtn_direction = 'positive'
@@ -51,7 +51,7 @@ if isinstance(selected_option, int):
     - **Ticker:** {ticker}
     - **Date:** {date}
     - **Time of signal candle:** {signal_time_str}
-    - **Signal candle percentage:** {perc * 100:.1f} %
+    - **Signal candle percentage:** {signal_candle_perc * 100:.1f} %
     """)
 
     fig = go.Figure(data=[
@@ -100,4 +100,4 @@ if isinstance(selected_option, int):
             st.write(f"{selected_model_name} predicts that the return is: {prediction[0, 1]:.2f}")
         else:
             st.write(f"{selected_model_name} predicts that the probability of positive return is: {prediction[0, 1]:.2f}")
-            st.write(f"The actual return is: {rtn_direction}")
+            st.write(f"The actual return is: {rtn_direction} ({rtn:.2f})")
