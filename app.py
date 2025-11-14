@@ -24,8 +24,9 @@ for i in range(5):
     df = pd.read_parquet(f"sample_data/w_{i}.parquet")
     sample_windows.append(df)
 
-st.write("Date of chosen window:", sample_windows[selected_idx]['ticker'].iloc[0])
-st.write("Ticker of chosen window:", sample_windows[selected_idx]['ticker'].iloc[0][:10])
+
+st.write("Ticker of chosen window:", sample_windows[selected_idx]['ticker'].iloc[0])
+st.write("Date of chosen window:", sample_windows[selected_idx]['t'].iloc[0][:10])
 st.write("Time of first candle:", sample_windows[selected_idx]['t'].iloc[0])
 st.write("Time of signal candle:", sample_windows[selected_idx]['t'].iloc[21])
 
