@@ -21,7 +21,7 @@ options = ["Pick a sample window..."] + list(range(1, len(X_samples) + 1))
 selected_option = st.selectbox("", options)
 
 # Only run if a real sample is selected
-if selected_option != "Select a sample..." and type(selected_option) == int:
+if type(selected_option) == int:
     selected_idx = selected_option - 1  # now 0-based index
 
     sample_input = X_samples[selected_idx]
