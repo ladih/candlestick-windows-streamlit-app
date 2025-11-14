@@ -80,11 +80,16 @@ if isinstance(selected_option, int):
     if selected_model_name != "Select a model...":
         selected_model = models[selected_model_name]
         st.write(f"Selected model: {selected_model_name}")
-
+        if selected_model_name.split[-1] == 'regression':
+            model_type = 'regression'
+        else:
+            model_type = 'classification'
         sample_input = X_samples[selected_idx]
         sample_input = sample_input.reshape(1, -1)  # shape (1, n_features)
         true_label = y_samples[selected_idx]
         prediction = selected_model.predict_proba(sample_input)
 
         st.write("True label:", true_label)
-        st.write("Prediction:", prediction[0, 1])
+
+        if model_type == 'classification':
+            st.write("The model predicts that the probability of positive return is:", prediction[0, 1])
