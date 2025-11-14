@@ -73,11 +73,10 @@ if isinstance(selected_option, int):
     # Select model
     options_models = ["Select a model..."] + list(models.keys())
     selected_model_name = st.selectbox("", options_models)
-    st.write(selected_model_name)
-    st.write(selected_model_name)
+
     if selected_model_name != "Select a model...":
         selected_model = models[selected_model_name]
-        st.write(f"Selected model: {selected_model_name}")
+        st.write(f"awdwad: {selected_model_name}")
 
         sample_input = X_samples[selected_idx]
         sample_input = sample_input.reshape(1, -1)  # shape (1, n_features)
