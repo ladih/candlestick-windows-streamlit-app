@@ -92,4 +92,4 @@ if isinstance(selected_option, int):
         if model_type == 'regression':
             st.write("notyet")
         else:
-            st.write("The model predicts that the probability of positive return is:", prediction[0, 1])
+            st.write(f"{selected_mdel_name} predicts that the probability of positive return is: {prediction[0, 1]:.2f})
