@@ -78,15 +78,17 @@ if isinstance(selected_option, int):
     if selected_model_name != "Select a model...":
         selected_model = models[selected_model_name]
         st.write(f"Selected model: {selected_model_name}")
+
+        sample_input = X_samples[selected_idx]
+        sample_input = sample_input.reshape(1, -1)  # shape (1, n_features)
+        true_label = y_samples[selected_idx]
+        prediction = selected_model.predict_proba(sample_input)
+
+        st.write("True label:", true_label)
+        st.write("Prediction:", prediction[0, 1])
+
+
     else:
         selected_model = None
         st.write("No model selected.")
     st.write(f"You selected: **{selected_model_name}**")
-
-    sample_input = X_samples[selected_idx]
-    sample_input = sample_input.reshape(1, -1)  # shape (1, n_features)
-    true_label = y_samples[selected_idx]
-    prediction = selected_model.predict_proba(sample_input)
-
-    st.write("True label:", true_label)
-    st.write("Prediction:", prediction[0, 1])
