@@ -32,11 +32,10 @@ df = w[:21]
 ticker = df['ticker'].iloc[0]
 date = df['t'].iloc[0].date()
 
-st.markdown(f"Chosen ticker: <span style='color:green'>{ticker}</span>", unsafe_allow_html=True)
-st.markdown(f"Date: <span style='color:green'>{date}</span>", unsafe_allow_html=True)
-st.markdown(f"Time of signal candle: <span style='color:green'>{w['t'].iloc[I_SIGNAL_CANDLE].strftime('%H:%M')}</span>", unsafe_allow_html=True)
+st.write("Chosen ticker:", ticker)
+st.write("Date:", date)
+st.write("Time of signal candle:", w['t'].iloc[I_SIGNAL_CANDLE].time())
 
-# Plotly candlestick figure
 fig = go.Figure(data=[
     go.Candlestick(
         x=df['t'].dt.time,
