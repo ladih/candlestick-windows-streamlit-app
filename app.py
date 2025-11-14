@@ -27,6 +27,7 @@ for i in range(5):
 w = sample_windows[selected_idx]
 df = w[:21]
 ticker = df['ticker'].iloc[0]
+date = df['t'].iloc[0].date()
 
 import plotly.graph_objects as go
 
@@ -44,7 +45,7 @@ fig = go.Figure(data=[
 ])
 
 fig.update_layout(
-    title=f"Ticker: {ticker}",
+    title=f"Ticker: {ticker}, Date: {date}",
     xaxis_title="Time",
     yaxis_title="Price",
     xaxis_rangeslider_visible=False
