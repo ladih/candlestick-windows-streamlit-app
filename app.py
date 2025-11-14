@@ -22,10 +22,10 @@ true_label = y_samples[selected_idx]
 sample_windows = []
 for i in range(5):
     df = pd.read_parquet(f"sample_data/w_{i}.parquet")
-
+    sample_windows.append(df)
 st.write("Ticker of chosen window:", sample_windows[selected_idx]['ticker'])
 st.write("Time of first candle:", sample_windows[selected_idx]['t'].iloc[0])
-st.write("Signal candle time:", sample_windows[selected_idx]['ticker'].iloc[21])
+st.write("Signal candle time:", sample_windows[selected_idx]['t'].iloc[21])
 
 
 st.write("Shape of X_samples:", X_samples.shape)
