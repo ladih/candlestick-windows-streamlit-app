@@ -17,7 +17,18 @@ X_samples = np.load("sample_data/X_flat_test.npy")
 y_samples = np.load("sample_data/y_binary_test.npy")
 
 # Let user pick a sample
-selected_idx = -1 + st.selectbox("Pick a sample window", list(range(1, len(X_samples) + 1)))
+selected_idx = st.selectbox("Pick a sample window", list(range(1, len(X_samples) + 1)), index=-1)
+
+# Only show things after a valid selection
+if selected_idx is not None:
+    # Adjust for 0-based index
+    selected_idx = selected_idx - 1
+
+    # Everything below happens only after picking
+    st.write(f"You picked sample window #{selected_idx + 1}")
+    # e.g. show plots or data
+    st.line_chart(X_samples[selected_idx])
+    
 sample_input = X_samples[selected_idx]
 true_label = y_samples[selected_idx]
 
