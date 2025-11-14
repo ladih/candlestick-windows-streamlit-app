@@ -24,11 +24,11 @@ for i in range(5):
     df = pd.read_parquet(f"sample_data/w_{i}.parquet")
     sample_windows.append(df)
 
-
-st.write("Ticker:", sample_windows[selected_idx]['ticker'].iloc[0])
-st.write("Date:", sample_windows[selected_idx]['t'].iloc[0].date())
-st.write("Time of first candle:", sample_windows[selected_idx]['t'].iloc[0])
-st.write("Time of signal candle:", sample_windows[selected_idx]['t'].iloc[21])
+w = sample_windows[selected_idx]
+st.write("Ticker:", w['ticker'].iloc[0])
+st.write("Date:", w['t'].iloc[0].date())
+st.write("Time of first candle:", w['t'].iloc[0])
+st.write("Time of signal candle:", w['t'].iloc[21])
 
 sample_input = X_samples[selected_idx]
 sample_input = X_samples[selected_idx].reshape(1, -1) # shape (1, n_features) for tree models
