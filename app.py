@@ -67,7 +67,9 @@ if isinstance(selected_option, int):
     )
     st.plotly_chart(fig, use_container_width=True)
 
-    st.write("Feature families and indice used for prediction:")
+    st.write("Feature families with corresponding indices used for prediction:")
+
+    st.write("Total:")
 
     # Select model
     options_models = ["Select a model..."] + list(models.keys())
