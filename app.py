@@ -10,7 +10,7 @@ st.title("Return Prediction Demo")
 
 I_SIGNAL_CANDLE = 20
 I_BUY_CANDLE = 21
-I_SELL_CANDLE = 26
+I_SELL_CANDLE = 25
 
 # Load sample windows
 sample_windows = []
