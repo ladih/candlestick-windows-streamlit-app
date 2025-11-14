@@ -24,9 +24,6 @@ selected_option = st.selectbox("", options)
 if type(selected_option) == int:
     selected_idx = selected_option - 1  # now 0-based index
 
-    sample_input = X_samples[selected_idx]
-    true_label = y_samples[selected_idx]
-
     # Load sample windows
     sample_windows = []
     for i in range(5):
@@ -72,7 +69,10 @@ if type(selected_option) == int:
     st.plotly_chart(fig, use_container_width=True)
 
     # Make prediction
+
+    sample_input = X_samples[selected_idx]
     sample_input = sample_input.reshape(1, -1)  # shape (1, n_features)
+    true_label = y_samples[selected_idx]
     prediction = rf_model.predict_proba(sample_input)
 
     st.write("True label:", true_label)
