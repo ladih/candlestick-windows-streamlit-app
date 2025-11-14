@@ -57,7 +57,7 @@ fig.update_layout(
 )
 
 
-fig.update_xaxes(dtick="30000")   # 300,000 ms = 5 minutes
+fig.update_xaxes(dtick="300000")   # 300,000 ms = 5 minutes
 
 # Show in Streamlit
 st.plotly_chart(fig, use_container_width=True)
