@@ -58,7 +58,8 @@ if isinstance(selected_option, int):
         title={
             "text": f"Window Chart",
             "font": {"size": 20},
-            "x": 0.5
+            "x": 0.5,
+            "xanchor": "center" # aligns the text around its center
         },
         xaxis_title="Time",
         yaxis_title="Price",
