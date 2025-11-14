@@ -73,7 +73,6 @@ if isinstance(selected_option, int):
     # Select model
     options_models = ["Select a model..."] + list(models.keys())
     selected_model_name = st.selectbox("", options_models)
-
     if selected_model_name != "Select a model...":
         selected_model = models[selected_model_name]
         st.write(f"Selected model: {selected_model_name}")
@@ -85,7 +84,3 @@ if isinstance(selected_option, int):
 
         st.write("True label:", true_label)
         st.write("Prediction:", prediction[0, 1])
-
-    else:
-        selected_model = None
-        st.write("No model selected.")
