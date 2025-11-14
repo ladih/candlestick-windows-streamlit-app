@@ -39,7 +39,8 @@ if selected_option != "Select a sample..." and type(selected_option) == int:
     date = df['t'].iloc[0].date()
     signal_time = w['t'].iloc[I_SIGNAL_CANDLE]
 
-    st.write("Ticker of chosen window:", ticker)
+    st.write("Information of chosen window:")
+    st.write("Ticker:", ticker)
     st.write("Date:", date)
     st.write("Time of signal candle:", signal_time.time().replace(second=0, microsecond=0))  # HH:MM, green
 
