@@ -99,6 +99,7 @@ if isinstance(selected_option, int):
         if model_type == 'regression':
             st.write(f"{selected_model_name} predicts that the return is: {prediction[0, 1]:.2f}")
         else:
+            st.write(f"{selected_model_name} predicts that the probability of positive return is: {prediction[0, 1]:.2f}")
             # Determine color based on rtn_direction
             color = "green" if rtn_direction.lower() == "positive" else "red"
 
@@ -106,4 +107,4 @@ if isinstance(selected_option, int):
             st.markdown(
                 f'The actual return is: <span style="color:{color}; font-weight:bold;">{rtn_direction}</span> ({100 * rtn:.2f} %)',
                 unsafe_allow_html=True
-                )
+                st.write(f"The actual return is: {rtn_direction} ({100 * rtn:.2f} %)")
