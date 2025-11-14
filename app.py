@@ -74,6 +74,13 @@ if isinstance(selected_option, int):
     options_models = ["Select a model..."] + list(models.keys())
     selected_model_name = st.selectbox("", options_models)
     selected_model = models[selected_model_name]
+
+    if selected_model_name != "Select a model...":
+        selected_model = models[selected_model_name]
+        st.write(f"Selected model: {selected_model_name}")
+    else:
+        selected_model = None
+        st.write("No model selected.")
     st.write(f"You selected: **{selected_model_name}**")
 
     sample_input = X_samples[selected_idx]
