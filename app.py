@@ -34,12 +34,12 @@ if isinstance(selected_option, int):
     df = w[:21]
     ticker = df['ticker'].iloc[0]
     date = df['t'].iloc[0].date()
-    signal_time = w['t'].iloc[I_SIGNAL_CANDLE]
+    signal_time_str = signal_time.strftime("%H:%M")
 
     st.write("**Sample Info**")
     st.write(f"**Ticker:** {ticker}")
     st.write(f"**Date:** {date}")
-    st.write(f"**Time of signal candle:** {signal_time_str = signal_time.strftime("%H:%M"))  # HH:MM
+    st.write(f"**Time of signal candle:** {signal_time_str}")  # HH:MM
 
     fig = go.Figure(data=[
         go.Candlestick(
