@@ -47,7 +47,7 @@ if isinstance(selected_option, int):
 
     fig = go.Figure(data=[
         go.Candlestick(
-            title='Chart up to signal candle'
+            title='Chart up to signal candle',
             x=df['t'].dt.strftime('%H:%M'),
             open=df['o'],
             high=df['h'],
