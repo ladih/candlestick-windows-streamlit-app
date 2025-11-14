@@ -41,7 +41,7 @@ if isinstance(selected_option, int):
     signal_time_str = signal_time.strftime("%H:%M")
 
     st.markdown(f"""
-    **Sample Info**
+    **Sample Window Info**
     - **Ticker:** {ticker}
     - **Date:** {date}
     - **Time of signal candle:** {signal_time_str}
@@ -74,7 +74,7 @@ if isinstance(selected_option, int):
     options_models = ["Select a model..."] + list(models.keys())
     selected_model_name = st.selectbox("", options_models)
     selected_model = models[selected_model_name]
-
+    st.write(selected_model)
     if selected_model_name != "Select a model...":
         selected_model = models[selected_model_name]
         st.write(f"Selected model: {selected_model_name}")
