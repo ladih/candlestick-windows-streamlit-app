@@ -56,20 +56,21 @@ if isinstance(selected_option, int):
         )
     ])
     fig.update_xaxes(tickmode="linear", dtick=2)
-    fig.update_layout(
-        title={
-            'text': "My Candlestick Chart",
-            'x': 0.5,  # Centers the title
-            'xanchor': 'center',
-            'yanchor': 'top',
-            'font': {"size": 24}
-        },
-        xaxis_title="Time",
-        yaxis_title="Price",
-        xaxis_title_font={"size": 18},
-        yaxis_title_font={"size": 18},
-        xaxis_rangeslider_visible=False
-    )
+fig.update_layout(
+    title={
+        'text': "My Candlestick Chart",
+        'x': 0.5,  # Centers the title
+        'xanchor': 'center',
+        'yanchor': 'top',
+        'font': {"size": 24}
+    },
+    xaxis_title="Time",
+    yaxis_title="Price",
+    xaxis_title_font={"size": 18},
+    yaxis_title_font={"size": 18},
+    xaxis_rangeslider_visible=False
+)
+    st.plotly_chart(fig, use_container_width=True)
 
     # Select model
     options_models = ["Select a model..."] + list(models.keys())
