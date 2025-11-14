@@ -35,7 +35,7 @@ import plotly.graph_objects as go
 # Plotly candlestick figure
 fig = go.Figure(data=[
     go.Candlestick(
-        x=df['t'].time,
+        x=df['t'].dt.time,
         open=df['o'],
         high=df['h'],
         low=df['l'],
