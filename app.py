@@ -14,7 +14,7 @@ X_samples = np.load("sample_data/X_flat_test.npy")
 y_samples = np.load("sample_data/y_binary_test.npy")
 
 # Let user pick a sample
-selected_idx = st.selectbox("Pick a sample", list(range(len(X_samples))))
+selected_idx = st.selectbox("Pick a sample window", list(range(len(X_samples))))
 sample_input = X_samples[selected_idx]
 true_label = y_samples[selected_idx]
 
@@ -23,7 +23,7 @@ sample_windows = []
 for i in range(5):
     df = pd.read_parquet(f"sample_data/w_{i}.parquet")
     sample_windows.append(df)
-st.write("Ticker of chosen window:", sample_windows[selected_idx]['ticker'])
+st.write("Ticker of chosen window:", sample_windows[selected_idx]['ticker'].iloc[0])
 st.write("Time of first candle:", sample_windows[selected_idx]['t'].iloc[0])
 st.write("Signal candle time:", sample_windows[selected_idx]['t'].iloc[21])
 
