@@ -26,7 +26,7 @@ for i in range(5):
 
 
 st.write("Ticker of chosen window:", sample_windows[selected_idx]['ticker'].iloc[0])
-st.write("Date of chosen window:", sample_windows[selected_idx]['t'].iloc[0][:10])
+st.write("Date of chosen window:", sample_windows[selected_idx]['t'].iloc[0].day)
 st.write("Time of first candle:", sample_windows[selected_idx]['t'].iloc[0])
 st.write("Time of signal candle:", sample_windows[selected_idx]['t'].iloc[21])
 
