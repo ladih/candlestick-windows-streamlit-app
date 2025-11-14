@@ -71,7 +71,8 @@ if isinstance(selected_option, int):
     st.plotly_chart(fig, use_container_width=True)
 
     # Select model
-    selected_model_name = ["Select a model..."] + st.selectbox("Select a model:", list(models.keys()))
+    options_models = ["Select a model..."] + list(models.keys())
+    selected_model_name = st.selectbox(":", list(models.keys()))
     selected_model = models[selected_model_name]
     st.write(f"You selected: **{selected_model_name}**")
 
