@@ -16,7 +16,10 @@ for i in range(5):
     sample_windows.append(df)
 
 # Load model
-rf_model = joblib.load("models/rf.pkl")
+models = {
+    "Random Forest": joblib.load("models/rf.pkl"),
+    "Extra Trees": joblib.load("models/ert.pkl")  # corrected, assuming ert.pkl exists
+}
 
 # Load sample data
 X_samples = np.load("sample_data/X_flat_test.npy")
@@ -67,12 +70,16 @@ if isinstance(selected_option, int):
 
     st.plotly_chart(fig, use_container_width=True)
 
-    # Make prediction
+    # Select model
+    selected_model_name = st.selectbox("Select a model:", list(models.keys()))
+    selected_model = models[selected_model_name]
+
+    st.write(f"You selected: **{selected_model_name}**")
 
     sample_input = X_samples[selected_idx]
     sample_input = sample_input.reshape(1, -1)  # shape (1, n_features)
     true_label = y_samples[selected_idx]
-    prediction = rf_model.predict_proba(sample_input)
+    prediction = selected_model_name.predict_proba(sample_input)
 
     st.write("True label:", true_label)
     st.write("Prediction:", prediction[0, 1])
