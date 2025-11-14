@@ -18,7 +18,7 @@ y_samples = np.load("sample_data/y_binary_test.npy")
 
 # Let user pick a sample, with a placeholder first
 options = ["Pick a sample window..."] + list(range(1, len(X_samples) + 1))
-selected_option = st.selectbox("Pick a sample window", options)
+selected_option = st.selectbox("", options)
 
 # Only run if a real sample is selected
 if selected_option != "Select a sample..." and type(selected_option) == int:
