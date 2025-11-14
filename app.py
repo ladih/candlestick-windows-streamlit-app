@@ -44,6 +44,8 @@ fig = go.Figure(data=[
     )
 ])
 
+fig.update_xaxes(dtick="00:05")   # every 5 minutes
+
 fig.update_layout(
     title={
         "text": f"{ticker}, {date}",
@@ -51,8 +53,8 @@ fig.update_layout(
     },
     xaxis_title="Time",
     yaxis_title="Price",
-    xaxis_title_font={"size": 15},
-    yaxis_title_font={"size": 15},
+    xaxis_title_font={"size": 18},
+    yaxis_title_font={"size": 18},
     xaxis_rangeslider_visible=False
 )
 
