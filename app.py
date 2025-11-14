@@ -72,7 +72,7 @@ if isinstance(selected_option, int):
 
     # Select model
     options_models = ["Select a model..."] + list(models.keys())
-    selected_model_name = st.selectbox(":", list(models.keys()))
+    selected_model_name = st.selectbox("", options_models)
     selected_model = models[selected_model_name]
     st.write(f"You selected: **{selected_model_name}**")
 
