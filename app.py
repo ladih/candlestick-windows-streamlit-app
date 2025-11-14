@@ -34,6 +34,7 @@ if isinstance(selected_option, int):
     df = w[:21]
     ticker = df['ticker'].iloc[0]
     date = df['t'].iloc[0].date()
+    signal_time = df['t'].iloc[I_SIGNAL_CANDLE].time()
     signal_time_str = signal_time.strftime("%H:%M")
 
     st.write("**Sample Info**")
