@@ -57,9 +57,7 @@ if isinstance(selected_option, int):
             name="Candles"
         )
     ])
-
     fig.update_xaxes(tickmode="linear", dtick=2)
-
     fig.update_layout(
         xaxis_title="Time",
         yaxis_title="Price",
@@ -67,8 +65,9 @@ if isinstance(selected_option, int):
         yaxis_title_font={"size": 18},
         xaxis_rangeslider_visible=False
     )
-
     st.plotly_chart(fig, use_container_width=True)
+
+    st.write("Feature families and indice used for prediction:")
 
     # Select model
     options_models = ["Select a model..."] + list(models.keys())
