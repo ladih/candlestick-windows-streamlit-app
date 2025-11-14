@@ -22,7 +22,7 @@ selected_option = st.selectbox("Pick a sample window", options)
 
 # Only run if a real sample is selected
 if selected_option != "Select a sample...":
-    selected_idx = selected_option - 1  # adjust for 0-based index
+    selected_idx = int(selected_option) - 1  # now 0-based index
 
     sample_input = X_samples[selected_idx]
     true_label = y_samples[selected_idx]
