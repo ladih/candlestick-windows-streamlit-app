@@ -44,8 +44,6 @@ fig = go.Figure(data=[
     )
 ])
 
-fig.update_xaxes(dtick="00:05")   # every 5 minutes
-
 fig.update_layout(
     title={
         "text": f"{ticker}, {date}",
@@ -57,6 +55,10 @@ fig.update_layout(
     yaxis_title_font={"size": 18},
     xaxis_rangeslider_visible=False
 )
+
+
+fig.update_xaxes(dtick="00:05")   # every 5 minutes
+
 
 # Show in Streamlit
 st.plotly_chart(fig, use_container_width=True)
