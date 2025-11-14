@@ -34,8 +34,7 @@ date = df['t'].iloc[0].date()
 
 st.write("Chosen ticker:", ticker)
 st.write("Date:", date)
-st.write("Time of signal candle:",\
-    signal_time.time().replace(second=0, microsecond=0))  # keeps green, HH:MM
+st.write("Time of signal candle:", signal_time.time().replace(second=0, microsecond=0))  # keeps green, HH:MM
 
 fig = go.Figure(data=[
     go.Candlestick(
