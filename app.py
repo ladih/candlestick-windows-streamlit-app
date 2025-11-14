@@ -48,6 +48,8 @@ fig = go.Figure(data=[
     )
 ])
 
+fig.update_xaxes(tickmode="linear", dtick=2)
+
 fig.update_layout(
     title={
         "text": f"",
@@ -60,7 +62,6 @@ fig.update_layout(
     xaxis_rangeslider_visible=False
 )
 
-fig.update_xaxes(tickmode="linear", dtick=4)
 # Show in Streamlit
 st.plotly_chart(fig, use_container_width=True)
 
