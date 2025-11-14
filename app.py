@@ -52,7 +52,7 @@ fig.update_layout(
     xaxis_title="Time",
     yaxis_title="Price",
     xaxis_title_font={"size": 20},
-    yaxis_title_font={"size": 20},
+    yaxis_title_font={"size": 40},
     xaxis_rangeslider_visible=False
 )
 
