@@ -5,6 +5,8 @@ import joblib
 import plotly.graph_objects as go
 from sklearn.ensemble import RandomForestClassifier
 
+I_SIGNAL_CANDLE = 20
+
 st.title("Return Prediction Demo")
 
 # Load model
@@ -32,7 +34,7 @@ date = df['t'].iloc[0].date()
 
 st.write("Chosen ticker:", ticker)
 st.write("Date:", date)
-st.write("Time of signal candle:", w['t'].dt.time.iloc[21])
+st.write("Time of signal candle:", w['t'].iloc[I_SIGNAL_CANDLE].strftime("%H:%M"))
 
 # Plotly candlestick figure
 fig = go.Figure(data=[
