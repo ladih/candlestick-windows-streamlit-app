@@ -26,6 +26,7 @@ for i in range(5):
 
 w = sample_windows[selected_idx]
 df = w[:21]
+ticker = df['ticker'].iloc[0]
 
 import plotly.graph_objects as go
 
@@ -43,7 +44,7 @@ fig = go.Figure(data=[
 ])
 
 fig.update_layout(
-    title="Candlestick Chart",
+    title=f"Ticker: {ticker}",
     xaxis_title="Time",
     yaxis_title="Price",
     xaxis_rangeslider_visible=False
