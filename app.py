@@ -45,7 +45,7 @@ fig = go.Figure(data=[
 ])
 
 fig.update_layout(
-    title=f"Ticker: {ticker}, Date: {date}",
+    title=f"{ticker}, {date}",
     xaxis_title="Time",
     yaxis_title="Price",
     xaxis_rangeslider_visible=False
