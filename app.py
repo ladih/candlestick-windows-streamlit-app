@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
+import plotly.graph_objects as go
 from sklearn.ensemble import RandomForestClassifier
 
 st.title("Return Prediction Demo")
@@ -29,8 +30,10 @@ df = w[:21]
 ticker = df['ticker'].iloc[0]
 date = df['t'].iloc[0].date()
 
-import plotly.graph_objects as go
-
+st.write("Chosen ticker:", ticker)
+st.write("Date:", date)
+st.write("Time of first candle:", w['t'].iloc[0])
+st.write("Time of signal candle:", w['t'].iloc[21])
 
 # Plotly candlestick figure
 fig = go.Figure(data=[
@@ -59,11 +62,6 @@ fig.update_layout(
 fig.update_xaxes(tickmode="linear", dtick=4)
 # Show in Streamlit
 st.plotly_chart(fig, use_container_width=True)
-
-st.write("Ticker:", ticker)
-st.write("Date:", date)
-st.write("Time of first candle:", w['t'].iloc[0])
-st.write("Time of signal candle:", w['t'].iloc[21])
 
 sample_input = X_samples[selected_idx]
 sample_input = X_samples[selected_idx].reshape(1, -1) # shape (1, n_features) for tree models
