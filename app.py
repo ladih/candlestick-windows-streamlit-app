@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import pickle
-from model_trade_metric_class import ModelTradesMetrics
+from model_trades_metrics import ModelTradesMetrics
 
 I_SIGNAL_CANDLE = 20
 I_BUY_CANDLE = 21
