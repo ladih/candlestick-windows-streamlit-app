@@ -6,7 +6,7 @@ import pickle
 # ----------------------------
 # Load pre-saved data
 # ----------------------------
-@st.cache_resource
+
 def load_data():
     with open("data/metrics_to_streamlit.pkl", "rb") as f:
         metrics = pickle.load(f)
