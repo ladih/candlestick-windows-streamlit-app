@@ -8,9 +8,9 @@ import pickle
 # ----------------------------
 @st.cache_resource
 def load_data():
-    with open("metrics_to_streamlit.pkl", "rb") as f:
+    with open("data/metrics_to_streamlit.pkl", "rb") as f:
         metrics = pickle.load(f)
-    with open("windows_test.pkl", "rb") as f:
+    with open("data/windows_test.pkl", "rb") as f:
         windows = pickle.load(f)
     return metrics, windows
 
